@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chablis · 网站更新中</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Noto+Serif+SC:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --blush: #ffd6e5;
+      --rose: #f7a8c4;
+      --petal: #ff8fb3;
+      --deep: #c45c82;
+      --ink: #6b2b45;
+      --cream: #fff7fb;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html, body {
+      height: 100%;
+    }
+
+    body {
+      overflow: hidden;
+      color: var(--ink);
+      font-family: "Noto Serif SC", "Songti SC", serif;
+      background:
+        radial-gradient(1200px 800px at 12% 8%, #ffe9f2 0%, transparent 55%),
+        radial-gradient(900px 700px at 92% 18%, #ffc2d8 0%, transparent 50%),
+        radial-gradient(800px 600px at 70% 92%, #ffb3cf 0%, transparent 48%),
+        linear-gradient(165deg, #fff0f6 0%, #ffd0e2 42%, #f7b7ce 100%);
+    }
+
+    .grain {
+      pointer-events: none;
+      position: fixed;
+      inset: 0;
+      opacity: 0.18;
+      mix-blend-mode: overlay;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='.55'/%3E%3C/svg%3E");
+    }
+
+    .petal {
+      position: fixed;
+      top: -8vh;
+      width: 14px;
+      height: 18px;
+      border-radius: 80% 0 80% 0;
+      background: linear-gradient(135deg, #fff 0%, var(--petal) 55%, var(--rose) 100%);
+      opacity: 0.72;
+      animation: fall linear infinite;
+      filter: drop-shadow(0 4px 8px rgba(196, 92, 130, 0.18));
+    }
+
+    .petal:nth-of-type(1) { left: 8%; animation-duration: 14s; animation-delay: -2s; }
+    .petal:nth-of-type(2) { left: 18%; width: 10px; height: 13px; animation-duration: 18s; animation-delay: -7s; }
+    .petal:nth-of-type(3) { left: 32%; animation-duration: 12s; animation-delay: -4s; }
+    .petal:nth-of-type(4) { left: 47%; width: 16px; height: 20px; animation-duration: 16s; animation-delay: -11s; }
+    .petal:nth-of-type(5) { left: 61%; animation-duration: 20s; animation-delay: -1s; }
+    .petal:nth-of-type(6) { left: 73%; width: 11px; height: 14px; animation-duration: 13s; animation-delay: -9s; }
+    .petal:nth-of-type(7) { left: 84%; animation-duration: 17s; animation-delay: -5s; }
+    .petal:nth-of-type(8) { left: 93%; width: 9px; height: 12px; animation-duration: 15s; animation-delay: -13s; }
+
+    @keyframes fall {
+      0% {
+        transform: translate3d(0, -10vh, 0) rotate(0deg);
+        opacity: 0;
+      }
+      8% { opacity: 0.75; }
+      100% {
+        transform: translate3d(-40px, 110vh, 0) rotate(360deg);
+        opacity: 0.15;
+      }
+    }
+
+    .stage {
+      position: relative;
+      z-index: 1;
+      min-height: 100%;
+      display: grid;
+      place-items: center;
+      padding: 24px;
+    }
+
+    .card {
+      width: min(560px, 100%);
+      padding: 56px 40px 44px;
+      text-align: center;
+      border: 1px solid rgba(255, 255, 255, 0.55);
+      border-radius: 28px;
+      background: linear-gradient(180deg, rgba(255, 247, 251, 0.72), rgba(255, 230, 240, 0.5));
+      box-shadow:
+        0 30px 80px rgba(196, 92, 130, 0.22),
+        inset 0 1px 0 rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(18px);
+    }
+
+    .mark {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 64px;
+      height: 64px;
+      margin-bottom: 22px;
+      border-radius: 50%;
+      color: var(--cream);
+      font-family: "Cormorant Garamond", serif;
+      font-size: 28px;
+      letter-spacing: 0.04em;
+      background: radial-gradient(circle at 30% 25%, #ffc4d8, var(--deep));
+      box-shadow: 0 10px 24px rgba(196, 92, 130, 0.35);
+    }
+
+    .brand {
+      margin-bottom: 28px;
+      color: var(--deep);
+      font-family: "Cormorant Garamond", serif;
+      font-size: 15px;
+      font-style: italic;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      font-size: clamp(28px, 5vw, 40px);
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      line-height: 1.45;
+    }
+
+    .hint {
+      margin-top: 16px;
+      color: rgba(107, 43, 69, 0.72);
+      font-size: 14px;
+      letter-spacing: 0.12em;
+    }
+
+    .bar {
+      width: min(220px, 70%);
+      height: 6px;
+      margin: 32px auto 0;
+      overflow: hidden;
+      border-radius: 999px;
+      background: rgba(255, 182, 206, 0.55);
+    }
+
+    .bar span {
+      display: block;
+      width: 42%;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, #ff9ec0, #e56b96);
+      animation: sweep 2.1s ease-in-out infinite;
+    }
+
+    @keyframes sweep {
+      0% { transform: translateX(-120%); }
+      100% { transform: translateX(280%); }
+    }
+
+    footer {
+      position: fixed;
+      right: 0;
+      bottom: 18px;
+      left: 0;
+      z-index: 1;
+      color: rgba(107, 43, 69, 0.55);
+      font-family: "Cormorant Garamond", serif;
+      font-size: 13px;
+      letter-spacing: 0.18em;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="grain" aria-hidden="true"></div>
+  <span class="petal" aria-hidden="true"></span>
+  <span class="petal" aria-hidden="true"></span>
+  <span class="petal" aria-hidden="true"></span>
+  <span class="petal" aria-hidden="true"></span>
+  <span class="petal" aria-hidden="true"></span>
+  <span class="petal" aria-hidden="true"></span>
+  <span class="petal" aria-hidden="true"></span>
+  <span class="petal" aria-hidden="true"></span>
+
+  <main class="stage">
+    <section class="card" aria-live="polite">
+      <div class="mark" aria-hidden="true">C</div>
+      <p class="brand">Chablis Homepage</p>
+              <h1>网站更新中，请等待……</h1>
+      <p class="hint">个人信息更新</p>
+      <div class="bar" aria-hidden="true"><span></span></div>
+    </section>
+  </main>
+
+  <footer>Coming soon</footer>
+</body>
+</html>
